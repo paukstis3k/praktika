@@ -1,23 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Register } from "./Register";
+import { Login } from "./Login";
+import React, { useState } from "react";
+
+
+
+
 
 function App() {
+  const form = document.querySelector("form");
+  const submit = form.querySelector(`button[type="submit"]`);
+  submit.addEventListener("click", function(event) {
+    event.preventDefault();
+  });
+
+  const [currentform, setCurrentForm] = useState("");
+
+  const toggleForm = (formName) => {
+    setCurrentForm(formName);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {currentform === "login" ? (
+        <Login onFormSwitch={toggleForm} />
+      ) : (
+        <Register onFormSwitch={toggleForm} />
+      )}
     </div>
   );
 }
