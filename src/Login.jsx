@@ -8,9 +8,12 @@ export const Login = (props) => {
     e.preventDefault();
   };
 
+  // const user = [];
+
+
   return (
     <div className="container">
-      <form className="login-form" onSubmit={handleSubmit}>
+      <form className="register-form" onSubmit={handleSubmit}>
         <label htmlFor="email">Email: </label>
         <input
           value={email}
@@ -29,11 +32,13 @@ export const Login = (props) => {
           id="password"
           name="password"
         />
-        <button type="submit">Log in</button>
+        <button onClick={handleSubmit} type="submit">Log in</button>
       </form>
       <button className="link-btn" onClick={() => props.onFormSwitch("register")}>
-        Or register here
+        Register
       </button>
     </div>
   );
 };
+
+
