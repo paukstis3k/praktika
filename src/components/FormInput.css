@@ -1,0 +1,20 @@
+input {
+  width: 250px;
+  height: 12px;
+  padding: 8px;
+  margin: 8px 0;
+  text-align: center;
+}
+  
+  span {
+  color: red;
+  display: none;
+}
+
+input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+
+input:invalid[focused="true"] ~ span {
+  display: block;
+}
